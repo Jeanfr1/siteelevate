@@ -1,0 +1,78 @@
+# Netlify Configuration for S-Elevate
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Directory to change to before starting a build
+  base = "/"
+  
+  # Command to build the site
+  command = "npm run build"
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "dist"
+
+# Production context: all deploys from the main branch
+[context.production]
+  command = "npm run build"
+  
+[context.production.environment]
+  NODE_VERSION = "18.0.0"
+
+# Deploy Preview context: all deploys generated from a pull/merge request
+[context.deploy-preview]
+  command = "npm run build"
+
+# Branch deploy context: all deploys that are not from a pull/merge request or from the main branch
+[context.branch-deploy]
+  command = "npm run build"
+
+# Redirect rules for Single Page Application
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Optimize images
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
