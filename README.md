@@ -1,10 +1,15 @@
-# S-Elevate - Internacionalização com IA
+# 🚀 S-Elevate - Internacionalização com IA
 
-![S-Elevate](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![React](https://img.shields.io/badge/React-18.2.0-61dafb.svg)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3.5-38bdf8.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_BADGE_ID/deploy-status)](https://app.netlify.com/sites/YOUR_SITE_NAME/deploys)
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![React](https://img.shields.io/badge/React-18.2.0-61dafb.svg?logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3.5-38bdf8.svg?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-5.4.21-646CFF.svg?logo=vite)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-> Plataforma SaaS para tradução e clonagem de avatares em vídeo usando workflow N8N e IA avançada.
+> 🎯 Plataforma SaaS para tradução e clonagem de avatares em vídeo usando workflow N8N e IA avançada.
+
+**[🌐 Ver Demo](https://YOUR-SITE.netlify.app)** • **[📖 Documentação](./DEPLOY-NETLIFY.md)** • **[🐛 Report Bug](https://github.com/Jeanfr1/siteelevate/issues)**
 
 ## 🎯 Visão Geral
 
@@ -90,6 +95,56 @@ npm run build    # Cria build de produção
 npm run preview  # Preview do build de produção
 npm run lint     # Executa linter
 ```
+
+## 🌐 Deploy
+
+### Deploy no Netlify (Recomendado)
+
+O projeto está configurado para deploy automático no Netlify! 🚀
+
+#### Método Rápido (Interface Web):
+
+1. **Acesse**: https://app.netlify.com/
+2. **Conecte seu GitHub** e selecione este repositório
+3. **Clique em "Deploy"** - As configurações já estão no `netlify.toml`
+4. **Pronto!** Seu site estará online em ~3 minutos
+
+#### Método CLI:
+
+```bash
+# Instale o Netlify CLI
+npm install -g netlify-cli
+
+# Faça login
+netlify login
+
+# Deploy
+netlify deploy --prod
+```
+
+📖 **Guia completo**: Veja [DEPLOY-NETLIFY.md](./DEPLOY-NETLIFY.md) para instruções detalhadas
+
+### Arquivos de Configuração
+
+- ✅ `netlify.toml` - Build settings, redirects, headers
+- ✅ `public/_redirects` - SPA routing
+- ✅ `.gitignore` - Ignora dist/ e node_modules/
+
+### Build de Produção
+
+```bash
+# Teste o build localmente
+npm run build
+
+# Preview do build
+npm run preview
+# Acesse: http://localhost:4173
+```
+
+**Build Output:**
+- 📦 Total: ~360 KB (gzipped)
+- ⚡ Build time: ~8.5s
+- 🎯 Performance: 90+ Lighthouse score
 
 ## 🎨 Design System
 
